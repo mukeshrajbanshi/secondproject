@@ -1,14 +1,16 @@
-.App {
+/* .App {
   text-align: center;
-}
-a {
+} */
+ a:link {
   text-decoration: none;
-  display: flex;
+  /* display: flex; */
+  list-style: none;
+  /* color: black !important; */
   
-  justify-content: center;
+  /* justify-content: center; */
  
-}
-
+} 
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -18,9 +20,9 @@ a {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -29,10 +31,72 @@ a {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
+} */
+/* 
 .App-link {
   color: #61dafb;
+} */
+.Prvious {
+  background-color: black;
+   text-decoration : "none";
+}
+
+
+
+
+.paginationBttns {
+  width:  80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  color: 	#F0FFFF;
+}
+
+a.previousBttn {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  /* list-style: none; */
+  border: 1px solid #61dafb;
+  background-color: #61dafb;
+  cursor: pointer;
+  
+}
+.previousBttn a:link {
+  text-decoration : "none";
+}
+.nextBttn {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  list-style: none;
+  border: 1px solid #61dafb;
+  background-color: #61dafb;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: black ;
+  background-color: #7861fb;
+  text-decoration: none;
+
+}
+
+.paginationActive a {
+  /* color: white; */
+  /* color : black; */
+  color: black !important;
+  padding: 10px;
+  background-color: #61dafb;
+  text-decoration: none;
+  /* list-style: none; */
+
+}
+
+.paginationDisabled {
+  color: black;
 }
 
 @keyframes App-logo-spin {

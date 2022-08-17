@@ -27,9 +27,9 @@ function LoginPage() {
 
   return (
     <>
-      <Form>
-        <h2>Login Form</h2>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form className="container ">
+        <h2 className="col-lg-4 mt-4 " style={{textAlign : "center"}}>Login Form</h2>
+        <Form.Group className=" col-lg-4" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
@@ -40,7 +40,7 @@ function LoginPage() {
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className=" col-lg-4" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
@@ -49,8 +49,13 @@ function LoginPage() {
             required
           />
         </Form.Group>
-
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+        <br />
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={handleSubmit}
+          className="mb-3 col-lg-4"
+        >
           Login
         </Button>
       </Form>

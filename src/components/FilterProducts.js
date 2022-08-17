@@ -15,11 +15,10 @@ export default function FilterProducts() {
 
   useEffect(
     () => async () => {
-      const res = await axios.get("https://dummyjson.com/products");
+      const res = await axios.get("https://dummyjson.com/products?limit=100");
       const { products } = res.data;
       dispatch(fetchData(products));
       setFilterData([...products]);
-
       // console.log(products);
     },
     [dispatch]
@@ -221,9 +220,9 @@ export default function FilterProducts() {
             <option>Open this select menu</option>
             {filterData.map((ele) => {
               return (
-                <>
+                <React.Fragment key={ele.id}>
                   <option key={ele.id}>{ele.category}</option>
-                </>
+                </React.Fragment>
               );
             })}
           </Form.Select>
@@ -231,6 +230,9 @@ export default function FilterProducts() {
 
         <Row>
           <ProductDetails filterData={filterData} loading={isLoading} />
+        </Row>
+        <Row>
+          {/* <Pagination filterData={filterData} loading={isLoading} /> */}
         </Row>
       </Row>
     </>

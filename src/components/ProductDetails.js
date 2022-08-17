@@ -1,20 +1,30 @@
-import React from "react";
+import React, {  useState } from "react";
 import { Row, Col, Button, Card } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addtocart } from "../reducersComponent/Action";
-
+import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 
 function ProductDetails({ filterData }) {
   let navigate = useNavigate();
 
   const dispatch = useDispatch();
+  const [pageNumber, setPageNumber] = useState(0);
+  const userperPage = 20;
+  //   console.log(setUsers);
+  const pageVisited = pageNumber * userperPage;
+  const pageCount = Math.ceil(filterData.length / userperPage);
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
 
   return (
     <>
       <Row xs={1} md={2} className="g-4">
-        {filterData &&
-          filterData.map((items) => (
+        {filterData && filterData
+          .slice(pageVisited, pageVisited + userperPage)
+          .map((items) => (
             <Col key={items.id}>
               <Card>
                 <Card.Header>{items.title}</Card.Header>
@@ -46,6 +56,20 @@ function ProductDetails({ filterData }) {
             </Col>
           ))}
       </Row>
+
+      <footer className="mt-3">
+        <ReactPaginate
+          previousLabel={"Prvious"}
+          nextLabel={"Next"}
+          pageCount={pageCount}
+          onClick={changePage}
+          containerClassName={"paginationBttns"}
+          previousLinkClassName={"previousBttn"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+        />
+      </footer>
     </>
   );
 }

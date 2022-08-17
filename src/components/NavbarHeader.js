@@ -16,11 +16,11 @@ function NavbarHeader() {
         <Container>
           <Navbar.Brand>Shopping Mart</Navbar.Brand>
           <Nav className="me-auto" >
-            <Link style = {{margin : "10px", color :"white"}} to = "/">Home</Link>
-            <Link style = {{margin : "10px", color : "white"}} to = "/cartDetails">CartDetails</Link>
+            <Link style = {{margin : "10px", color :"white" , textDecoration : "none"}} to = "/">Home</Link>
+            <Link style = {{margin : "10px", color : "white" , textDecoration : "none"}} to = "/cartDetails">CartDetails</Link>
 
           </Nav>
-          <Link to="/cartDetails">
+          <Link to="/cartDetails" >
             <FaCartPlus size={50}/>
           </Link>
             <h1 style={{ color :"white"}}><sup> {cart.length}</sup></h1>

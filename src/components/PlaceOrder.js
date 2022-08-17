@@ -14,12 +14,12 @@ function PlaceOrder() {
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      //   event.preventDefault();
       event.stopPropagation();
     }
     setValidated(true);
     if (form.checkValidity() === true) {
       navigate("/checkout");
+    
     }
   };
 

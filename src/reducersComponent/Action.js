@@ -1,4 +1,5 @@
-import { FETCH_DATA, ADD_CART, REMOVE_CART } from "./TypeOFActions"
+
+import { FETCH_DATA, ADD_CART, REMOVE_CART  } from "./TypeOFActions"
 export const fetchData = (data) => {
     return {
         type: FETCH_DATA,
@@ -19,3 +20,10 @@ export const removeFromCart = (itemID) => {
       payload: itemID
     };
   };
+
+export const checkout = (address) => {
+    return {
+        type : "CHECK_OUT",
+        payload : address
+    }
+}

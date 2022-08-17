@@ -3,6 +3,8 @@ const initialState = {
     products: [],
     cart: [],
     isLoading: false,
+    address : [],
+    
     // currentItem: null,
 }
 export const Reducers = (state = initialState, action) => {
@@ -26,14 +28,22 @@ export const Reducers = (state = initialState, action) => {
                         item.id === action.payload
                             ? { ...item, qty: item.qty + 1 }
                             : item
-                    )
+                    )                                    
                     : [...state.cart, { ...item, qty: 1 }],
             }
-            case TypeOfActions.REMOVE_CART:
-                return {
-                    ...state,
-                    cart:state.cart.filter((item)=>item.id!==action.payload),
-                  };
+        case TypeOfActions.REMOVE_CART:
+            return {
+                ...state,
+                cart:state.cart.filter((item)=>item.id!==action.payload),
+            }
+
+        case TypeOfActions.CHECK_OUT:
+            return {
+                ...state,
+                address : state.address
+                
+            }
+
         default:
             return state
     }
